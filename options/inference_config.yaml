@@ -1,0 +1,39 @@
+# inference_config.yaml
+# 词汇表
+data:
+  # 语言设置
+  src_lang: "en"  # 源语言
+  tgt_lang: "zh"  # 目标语言
+  
+  vocab_dir: "vocab"  # 词汇表保存目录
+  
+# 模型配置
+model:
+  # 这些配置应该与训练时保持一致
+  # 但通常从检查点文件中加载，这里作为备份
+  d_model: 512
+  n_heads: 8
+  d_ff: 2048
+  num_layers: 6
+  dropout: 0.1
+
+# 推理配置
+inference:
+  # 模型路径
+  model_path: "/tmp/pycharm_project_647/experiments/20260207_151657/best_model.pth"
+
+  # 测试数据路径
+  test_path: "data/mini/test.tsv"
+
+  # 输出配置
+  output_dir: "results"
+  output_file: "translations.tsv"
+
+  # 设备设置
+  device: "cuda:0"  # 或 "cpu"
+  seed: 42
+
+  # 解码参数
+  max_len: 100  # 最大生成长度
+  decode_method: "greedy"  # 可选: "greedy", "beam_search"
+  beam_width: 5  # 束搜索宽度（仅当使用束搜索时有效）

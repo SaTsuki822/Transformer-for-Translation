@@ -1,0 +1,5 @@
+tqdm
+pyyaml
+jieba
+pandas
+numpy==1.26
